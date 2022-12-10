@@ -109,7 +109,6 @@ const Main = () => {
                     component={ContactNavigator}
                     options={{ title: 'Contact Us' }}
                 />
-
             </Drawer.Navigator>
         </View>
     );
