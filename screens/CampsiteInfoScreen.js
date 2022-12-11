@@ -40,7 +40,9 @@ const CampsiteInfoScreen = ({ route }) => {
                         isFavorite={favorite}
                         markFavorite={() => setFavorite(true)}                        
                     />
-                    <Text style={styles.commentsTitle}>Comments</Text>
+                    <Text style={styles.commentsTitle}>
+                        Comments
+                    </Text>
                 </>
             }
         />

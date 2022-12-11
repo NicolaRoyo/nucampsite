@@ -20,23 +20,26 @@ const RenderCampsite = (props) => {
                         </Text>
                     </View>
                 </Card.Image>
-                <Text style={{ margin: 20 }}>{campsite.description}</Text>
-                    <Icon 
-                        name={props.isFavorite ? 'heart' : 'heart-o'}
-                        type='font-awesome'
-                        color='#f50'
-                        raised
-                        reverse
-                        onPress={() =>
-                            props.isFavorite
-                                ? console.log('Already set as a favorite')
-                                : props.markFavorite()
-                        }
-                    />
+                <Text style={{ margin: 20 }}>
+                    {campsite.description}
+                </Text>
+                <Icon 
+                    name={props.isFavorite ? 'heart' : 'heart-o'}
+                    type='font-awesome'
+                    color='#f50'
+                    raised
+                    reverse
+                    onPress={() =>
+                        props.isFavorite
+                            ? console.log('Already set as a favorite')
+                            : props.markFavorite()
+                    }
+                />
             </Card>
         );
     }
-    return <View />;
+
+    return <View />;  
 };
 
 const styles = StyleSheet.create({
