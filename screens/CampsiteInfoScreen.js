@@ -7,7 +7,8 @@ const CampsiteInfoScreen = ({ route }) => {
     const { campsite } = route.params;
 
     const [comments, setComments] = useState(COMMENTS);
-
+    const [favorite, setFavorite] = useState(false);
+ 
     const renderCommentItem = ({ item }) => {
         return (
             <View style={styles.commentItem}>
@@ -34,7 +35,11 @@ const CampsiteInfoScreen = ({ route }) => {
             contentContainerStyle={{ marginHorizontal: 20, paddingVertical: 20 }}
             ListHeaderComponent={
                 <>
-                    <RenderCampsite campsite={campsite} />
+                    <RenderCampsite 
+                        campsite={campsite}
+                        isFavorite={favorite}
+                        markFavorite={() => setFavorite(true)}                        
+                    />
                     <Text style={styles.commentsTitle}>Comments</Text>
                 </>
             }
@@ -58,6 +63,5 @@ const CampsiteInfoScreen = ({ route }) => {
             backgroundColor: '#fff'
         }
     });
-        
 
 export default CampsiteInfoScreen;
