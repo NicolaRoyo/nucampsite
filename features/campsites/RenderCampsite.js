@@ -1,6 +1,6 @@
-import { Text, View, StyleSheet } from "react-native";
-import { Card, Icon } from "react-native-elements";
-import { baseUrl } from "../../shared/baseUrl";
+import { Text, View, StyleSheet } from 'react-native';
+import { Card, Icon } from 'react-native-elements';
+import { baseUrl } from '../../shared/baseUrl';
 
 const RenderCampsite = (props) => {
     const { campsite } = props;
