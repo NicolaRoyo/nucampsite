@@ -11,6 +11,7 @@ import {
 import HomeScreen from './HomeScreen';
 import AboutScreen from './AboutScreen';
 import ContactScreen from './ContactScreen';
+import ReservationScreen from './ReservationScreen';
 import { Icon } from 'react-native-elements';
 import logo from '../assets/images/logo.png';
 import { useDispatch } from 'react-redux';
@@ -95,6 +96,29 @@ const ContactNavigator = () => {
     );
 };
 
+const ReservationNavigator = () => {
+    const Stack = createStackNavigator();
+    return (
+        <Stack.Navigator screenOptions={screenOptions}>
+            <Stack.Screen
+                name='Reservation'
+                component={ReservationScreen}
+                options={({ navigation }) => ({ 
+                    title: 'Reservation Search',
+                    headerLeft: () => (
+                        <Icon
+                            name='tree'
+                            type='font-awesome'
+                            iconStyle={styles.stackIcon}
+                            onPress={() => navigation.toggleDrawer()}
+                        />
+                    )
+                })}
+            />
+        </Stack.Navigator>
+    );
+};
+
 const DirectoryNavigator = () => {
     const Stack = createStackNavigator();
     return (
@@ -166,9 +190,9 @@ const Main = () => {
                 initialRouteName='Home'
                 drawerContent={CustomDrawerContent}
                 screenOptions={{
+                    headerShown: false,
                     drawerStyle:{ backgroundColor: '#CEC8FF' }
                 }}
-                
             >
                 <Drawer.Screen
                     name='Home'
@@ -189,17 +213,34 @@ const Main = () => {
                 <Drawer.Screen
                     name='Directory'
                     component={DirectoryNavigator}
-                    options={{ title: 'Campsite Directory', 
-                    drawerIcon: ({ color }) => (
-                        <Icon
-                            name='list'
-                            type='font-awesome'
-                            size={24}
-                            iconStyle={{ width: 24 }}
-                            color={color}
-                        />
-                    )
-                }}
+                    options={{ 
+                        title: 'Campsite Directory', 
+                        drawerIcon: ({ color }) => (
+                            <Icon
+                                name='list'
+                                type='font-awesome'
+                                size={24}
+                                iconStyle={{ width: 24 }}
+                                color={color}
+                            />
+                        )
+                    }}
+                />
+                <Drawer.Screen
+                    name='ReserveCampsite'
+                    component={ReservationNavigator}
+                    options={{ 
+                        title: 'Reserve Campsite', 
+                        drawerIcon: ({ color }) => (
+                            <Icon
+                                name='tree'
+                                type='font-awesome'
+                                size={24}
+                                iconStyle={{ width: 24 }}
+                                color={color}
+                            />
+                        )
+                    }}
                 />
                 <Drawer.Screen 
                     name='About'
@@ -220,17 +261,18 @@ const Main = () => {
                 <Drawer.Screen 
                     name='Contact'
                     component={ContactNavigator}
-                    options={{ title: 'Contact Us', 
-                    drawerIcon: ({ color }) => (
-                        <Icon
-                            name='address-card'
-                            type='font-awesome'
-                            size={24}
-                            iconStyle={{ width: 24 }}
-                            color={color}
-                        />
-                    )
-                }}
+                    options={{ 
+                        title: 'Contact Us', 
+                        drawerIcon: ({ color }) => (
+                            <Icon
+                                name='address-card'
+                                type='font-awesome'
+                                size={24}
+                                iconStyle={{ width: 24 }}
+                                color={color}
+                            />
+                        )
+                    }}
                 />
             </Drawer.Navigator>
         </View>
@@ -261,6 +303,6 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 24
     }
-})
+});
 
 export default Main;
